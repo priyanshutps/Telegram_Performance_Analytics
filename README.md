@@ -3,6 +3,7 @@
 ## Project Overview
 
 This project presents an **end-to-end data analysis pipeline** developed for a Telegram channel with over 20,000 members. The goal was to transform raw digital performance metrics (posts, clicks, earnings, time data) into actionable insights, ultimately driving **significant revenue growth and optimizing content strategy**. Leveraging a single Python script for data extraction and KPI calculation, MySQL for deep-dive trend analysis, and Excel for dynamic dashboarding, this analysis uncovered critical patterns in audience behavior and content performance.
+![overall dashboard](images/Dashboard.png)
 
 ---
 
@@ -45,16 +46,20 @@ The analysis followed a structured multi-stage approach:
 * **Weekly Performance Analysis:** The same script then ingests a weekly aggregated dataset (`telegram_data.csv`) to calculate critical KPIs such as:
     * Earnings per Post
     * Earnings per 1000 Clicks (Efficiency)
+    * ![weekly performance output](images/Python Output.png)
 * **Performance Extremes & Underperformance:** It identifies the best and worst performing weeks in terms of earnings, and flags specific underperforming weeks based on defined criteria.
-* **Automated Insights & Visualization:** The script generates actionable tips directly from the data patterns and produces a bar chart visualizing weekly earnings trends.
+* **Automated Insights & Visualization:** The script generates actionable tips directly from the data patterns and produces a bar chart visualizing weekly earnings trends. ![output:](images/Python visual.png)
 
 ### 2. Monthly Earning Pattern Analysis (MySQL)
 
 * **Data Import:** The aggregated weekly performance data (from Excel's `WeeklyData` table) was imported into a MySQL database named `telegramAnalysis`.
 * **Hypothesis Testing (SQL Query):** A complex SQL query (`monthly_earning_comparison.sql`) was executed to compare the earnings of the first week of each month against the maximum earnings from the rest of the weeks in that month. This aimed to validate the hypothesis that salary cycles influence spending at the beginning of the month.
 * **Insight Generation:** The SQL query successfully identified that for **3 out of 7 months (December, April, May)**, the first week's earnings were indeed higher than any other week in those respective months.
+*  ![sql output:](images/sql_output.png)
 
 ### 3. Dashboarding & Deeper Dive (Excel)
+
+*  ![Dashboard 1:](images/Dashboard1.png)
 
 * **Weekly Data Consolidation:** A main Excel table (`WeeklyData` sheet) consolidated weekly performance metrics, including `Week Start`, `Week End`, `Clicks`, `Earnings`, `Posts Made`, and `Days Covered` (to account for partial weeks at month ends).
 * **Dynamic Pivot Tables & Charts:** Created four key pivot tables and accompanying charts for comprehensive visualization:
@@ -64,6 +69,7 @@ The analysis followed a structured multi-stage approach:
     * 📈 **Monthly Earnings & Growth Percentage:** Tracking overall revenue trends from November 2024 to May 2025.
 * **Daily Data Integration:** A `daily_real` sheet was created using the `daily_post_data.csv` (from Python) and enhanced with `Week label` and `TOP COMPARISON` columns.
 * **Time-Based Performance Analysis:** Utilized an Excel formula (`=IF(COUNTIF('Top5'!I:I, D2) > 0, "Yes", "No")`) to compare daily data with top-performing weeks. Filtering this data revealed that **"After Evening" posts significantly outperformed** others in top-earning weeks.
+* ![Time based analysis:](images/DASHBOARD_DAILY_DATA.png)
 
 ---
 
