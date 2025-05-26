@@ -46,9 +46,9 @@ The analysis followed a structured multi-stage approach:
 * **Weekly Performance Analysis:** The same script then ingests a weekly aggregated dataset (`telegram_data.csv`) to calculate critical KPIs such as:
     * Earnings per Post
     * Earnings per 1000 Clicks (Efficiency)
-    * ![weekly performance output](images/Python Output.png)
+    * ![weekly performance output](images/PythonOutput.png)
 * **Performance Extremes & Underperformance:** It identifies the best and worst performing weeks in terms of earnings, and flags specific underperforming weeks based on defined criteria.
-* **Automated Insights & Visualization:** The script generates actionable tips directly from the data patterns and produces a bar chart visualizing weekly earnings trends. ![output:](images/Python visual.png)
+* **Automated Insights & Visualization:** The script generates actionable tips directly from the data patterns and produces a bar chart visualizing weekly earnings trends. ![output:](images/Pythonvisual.png)
 
 ### 2. Monthly Earning Pattern Analysis (MySQL)
 
@@ -59,7 +59,7 @@ The analysis followed a structured multi-stage approach:
 
 ### 3. Dashboarding & Deeper Dive (Excel)
 
-*  ![Dashboard 1:](images/Dashboard1.png)
+*  ![Dashboard 1:](images/DASHBOARD1.png)
 
 * **Weekly Data Consolidation:** A main Excel table (`WeeklyData` sheet) consolidated weekly performance metrics, including `Week Start`, `Week End`, `Clicks`, `Earnings`, `Posts Made`, and `Days Covered` (to account for partial weeks at month ends).
 * **Dynamic Pivot Tables & Charts:** Created four key pivot tables and accompanying charts for comprehensive visualization:
